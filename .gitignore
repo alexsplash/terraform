@@ -9,3 +9,5 @@ override.tf.json
 *_override.tf.json
 */terraform.tfvars
 */.terraform/*
+*/lesha_key
+*/lesha_key.pub
