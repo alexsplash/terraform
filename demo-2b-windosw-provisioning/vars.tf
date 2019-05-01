@@ -6,17 +6,17 @@ variable "AWS_REGION" {
 variable "WIN_AMIS" {
   type = "map"
   default = {
-    us-east-1 = "ami-30540427"
-    us-west-2 = "ami-9f5efbff"
-    eu-west-1 = "ami-7ac78809"
+    us-east-1 = ""
+    us-west-2 = ""
+    eu-west-1 = "ami-02f0a4701f9b8a91e"
   }
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "mykey"
+  default = "lesha_key"
 }
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+  default = "lesha_key.pub"
 }
 variable "INSTANCE_USERNAME" {
   default = "Terraform"
