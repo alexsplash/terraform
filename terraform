@@ -7,10 +7,38 @@ terraform apply
 # destroy all created
 terraform destroy
 
+# Rawrite config files to  canonical format
+terraform fmt
+
+# Download and update module
+terraform get
+
+#Create visualization of config or plan
+terraform graph
+
+#output any of resourse
+terraform output [option] [NAME]
+
+#refrash remote state 
+terraform refrash
+
+#Create remote state storage
+terraform remote
+
+#Mark resourse as tainted (зараженные) Will be destroyed and recreated an the next apply 
+terraform taint
+
+
+#Mark resourse as untainted 
+terraform untaint
+
+#Validate terraform syntax
+terraform validate
+
 # terraform plan and write the plan to out file
 terraform plan -out out.terraform      
 
-# apply terraform plan using out file
+# apply terraform plan using out file 
 terraform apply out.terraform            
 
 # show current state
