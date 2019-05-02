@@ -35,6 +35,9 @@ terraform untaint
 #Validate terraform syntax
 terraform validate
 
+#Import current infrastructure to terraform
+terraform import 
+
 # terraform plan and write the plan to out file
 terraform plan -out out.terraform      
 
