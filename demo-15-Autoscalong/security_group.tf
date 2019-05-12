@@ -1,4 +1,4 @@
-resource "aws_security_group" "example-instance" {
+resource "aws_security_group" "allow-ssh" {
   vpc_id      = "${aws_vpc.main.id}"
   name        = "allow-ssh"
   description = "security group that allows ssh and all egress traffic"
@@ -18,6 +18,6 @@ resource "aws_security_group" "example-instance" {
   }
 
   tags {
-    Name = "example-instance"
+    Name = "allow-ssh"
   }
 }

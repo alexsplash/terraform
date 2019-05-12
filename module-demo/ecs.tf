@@ -13,6 +13,7 @@ module "my-ecs" {
   AWS_ACCOUNT_ID = "${data.aws_caller_identity.current.account_id}"
   AWS_REGION     = "${var.AWS_REGION}"
 }
+
 module "my-service" {
   source              = "github.com/in4it/terraform-modules//modules/ecs-service?ref=v1.0.0"
   VPC_ID              = "${module.vpc.vpc_id}"
@@ -29,6 +30,7 @@ module "my-service" {
   DESIRED_COUNT       = 2
   ALB_ARN             = "${module.my-alb.alb_arn}"
 }
+
 module "my-alb" {
   source             = "github.com/in4it/terraform-modules//modules/alb?ref=v1.0.0"
   VPC_ID             = "${module.vpc.vpc_id}"
@@ -39,11 +41,12 @@ module "my-alb" {
   INTERNAL           = false
   ECS_SG             = "${module.my-ecs.cluster_sg}"
 }
+
 module "my-alb-rule" {
-  source             = "github.com/in4it/terraform-modules//modules/alb-rule?ref=v1.0.0"
-  LISTENER_ARN       = "${module.my-alb.http_listener_arn}"
-  PRIORITY           = 100
-  TARGET_GROUP_ARN   = "${module.my-service.target_group_arn}"
-  CONDITION_FIELD    = "host-header"
-  CONDITION_VALUES   = ["subdomain.ecs.newtech.academy"]
+  source           = "github.com/in4it/terraform-modules//modules/alb-rule?ref=v1.0.0"
+  LISTENER_ARN     = "${module.my-alb.http_listener_arn}"
+  PRIORITY         = 100
+  TARGET_GROUP_ARN = "${module.my-service.target_group_arn}"
+  CONDITION_FIELD  = "host-header"
+  CONDITION_VALUES = ["subdomain.ecs.newtech.academy"]
 }

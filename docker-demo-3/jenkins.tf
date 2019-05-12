@@ -13,21 +13,20 @@ resource "aws_instance" "jenkins-instance" {
 
   # user data
   user_data = "${data.template_cloudinit_config.cloudinit-jenkins.rendered}"
-
 }
 
 resource "aws_ebs_volume" "jenkins-data" {
-    availability_zone = "eu-west-1a"
-    size = 20
-    type = "gp2" 
-    tags {
-        Name = "jenkins-data"
-    }
+  availability_zone = "eu-west-1a"
+  size              = 20
+  type              = "gp2"
+
+  tags {
+    Name = "jenkins-data"
+  }
 }
 
 resource "aws_volume_attachment" "jenkins-data-attachment" {
   device_name = "${var.INSTANCE_DEVICE_NAME}"
-  volume_id = "${aws_ebs_volume.jenkins-data.id}"
+  volume_id   = "${aws_ebs_volume.jenkins-data.id}"
   instance_id = "${aws_instance.jenkins-instance.id}"
 }
-

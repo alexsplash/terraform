@@ -38,4 +38,3 @@ resource "aws_security_group_rule" "demo-node-ingress-cluster" {
   to_port                  = 65535
   type                     = "ingress"
 }
-
