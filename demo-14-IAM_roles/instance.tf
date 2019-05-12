@@ -9,9 +9,8 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = ["${aws_security_group.example-instance.id}"]
 
   # the public SSH key
-  key_name = "${aws_key_pair.mykeypair.key_name}"
+  key_name = "${aws_key_pair.lesha_key.key_name}"
 
   # role:
   iam_instance_profile = "${aws_iam_instance_profile.s3-mybucket-role-instanceprofile.name}"
-
 }
