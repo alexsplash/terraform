@@ -5,7 +5,7 @@ module "my-ecs" {
   VPC_ID         = "${module.vpc.vpc_id}"
   CLUSTER_NAME   = "my-ecs"
   INSTANCE_TYPE  = "t2.small"
-  SSH_KEY_NAME   = "${aws_key_pair.mykeypair.key_name}"
+  SSH_KEY_NAME   = "${aws_key_pair.lesha_key.key_name}"
   VPC_SUBNETS    = "${join(",", module.vpc.public_subnets)}"
   ENABLE_SSH     = true
   SSH_SG         = "${aws_security_group.allow-ssh.id}"

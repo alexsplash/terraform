@@ -41,7 +41,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = ["${aws_security_group.allow-ssh.id}"]
 
   # the public SSH key
-  key_name = "${aws_key_pair.mykeypair.key_name}"
+  key_name = "${aws_key_pair.lesha_key.key_name}"
 
   tags {
     Name         = "instance-${var.ENV}"
@@ -74,7 +74,7 @@ resource "aws_security_group" "allow-ssh" {
   }
 }
 
-resource "aws_key_pair" "mykeypair" {
-  key_name   = "mykeypair-${var.ENV}"
+resource "aws_key_pair" "lesha_key" {
+  key_name   = "lesha_key-${var.ENV}"
   public_key = "${file("${path.root}/${var.PATH_TO_PUBLIC_KEY}")}"
 }

@@ -7,7 +7,7 @@ resource "aws_launch_configuration" "ecs-example-launchconfig" {
   name_prefix          = "ecs-launchconfig"
   image_id             = "${lookup(var.ECS_AMIS, var.AWS_REGION)}"
   instance_type        = "${var.ECS_INSTANCE_TYPE}"
-  key_name             = "${aws_key_pair.mykeypair.key_name}"
+  key_name             = "${aws_key_pair.lesha_key.key_name}"
   iam_instance_profile = "${aws_iam_instance_profile.ecs-ec2-role.id}"
   security_groups      = ["${aws_security_group.ecs-securitygroup.id}"]
   user_data            = "#!/bin/bash\necho 'ECS_CLUSTER=example-cluster' > /etc/ecs/ecs.config\nstart ecs"

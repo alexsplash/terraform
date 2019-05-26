@@ -3,7 +3,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-16.04-amd64-server-*"]
   }
 
   filter {
@@ -25,5 +25,5 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = ["${var.ENV == "prod" ? aws_security_group.allow-ssh-prod.id : aws_security_group.allow-ssh-dev.id }"]
 
   # the public SSH key
-  key_name = "${aws_key_pair.mykeypair.key_name}"
+  key_name = "${aws_key_pair.lesha_key.key_name}"
 }

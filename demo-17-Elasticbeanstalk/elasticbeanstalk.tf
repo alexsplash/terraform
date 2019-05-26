@@ -41,7 +41,7 @@ resource "aws_elastic_beanstalk_environment" "app-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "EC2KeyName"
-    value     = "${aws_key_pair.mykeypair.id}"
+    value     = "${aws_key_pair.lesha_key.id}"
   }
 
   setting {
