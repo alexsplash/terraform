@@ -3,11 +3,11 @@ variable "AWS_REGION" {
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "mykey"
+  default = "lesha_key"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+  default = "lesha_key.pub"
 }
 
 variable "AMIS" {
@@ -29,7 +29,7 @@ variable "JENKINS_VERSION" {
 }
 
 variable "TERRAFORM_VERSION" {
-  default = "0.11.7"
+  default = "0.11.14"
 }
 
 variable "APP_INSTANCE_COUNT" {

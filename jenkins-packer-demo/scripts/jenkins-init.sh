@@ -33,14 +33,16 @@ apt-get update
 apt-get install -y python3 openjdk-8-jre
 update-java-alternatives --set java-1.8.0-openjdk-amd64
 # install jenkins
-apt-get install -y jenkins=${JENKINS_VERSION} unzip
+
+apt-get install -y jenkins unzip
 
 # install pip
 wget -q https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
 rm -f get-pip.py
 # install awscli
-pip install awscli
+pip install awscli 
+apt install awscli
 
 # install terraform
 wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
